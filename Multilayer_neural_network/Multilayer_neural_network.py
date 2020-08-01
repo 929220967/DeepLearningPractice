@@ -1,14 +1,14 @@
+# -*- coding: utf-8 -*-
+"""
+    Created on Fri Jul 31 18:26:27 2020
+    @Author Mr.Lu
+"""
 import numpy as np
-from scipy import ndimage
-
 from lr_utils import load_dataset
 from dnn_utils import *
 from testCases import *
 from matplotlib import pyplot as plt
-import scipy
-from matplotlib.pyplot import imread
-from PIL import Image
-from scipy import ndimage
+
 """
     在进行编程之前，我们应该首先明白要做什么：
     1、构建一个多层的神经网络
@@ -200,18 +200,7 @@ layers_size = [train_set_x.shape[0], 20, 7, 5, 1]
 iterator_num = 2500
 learning_rate = 0.0075
 
+# 执行模型
 parameters = L_model(train_set_x, train_set_y_orig, test_set_x, test_set_y_orig, iterator_num, learning_rate,
                      layers_size)
-
-
-# my_image = "cat.jpg" # change this to the name of your image file
-# my_label_y = [1] # the true class of your image (1 -> cat, 0 -> non-cat)
-# ## END CODE HERE ##
-#
-# fname = "E:/" + my_image
-# image = np.array(ndimage.imread(fname, flatten=False))
-# # my_image = scipy.misc.imresize(image, size=(64,64)).reshape((64*64*3,1))
-# # my_predicted_image = prediction(my_image, my_label_y, parameters)
-#
-# plt.imshow(image)
-# #print ("y = " + str(np.squeeze(my_predicted_image)) + ", your L-layer model predicts a \"" + classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") +  "\" picture.")
+print(parameters)
