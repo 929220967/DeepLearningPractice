@@ -131,12 +131,8 @@ def update_parameters_with_adam(parameters, grads, v, s, t, learning_rate=0.01, 
         s_corrected["db" + str(i + 1)] = s["db" + str(i + 1)] / (1 - np.power(beta2, t))
 
         # 更新权重
-        parameters["W" + str(i + 1)] = parameters["W" + str(i + 1)] - learning_rate * (
-                v_corrected["dW" + str(i + 1)] / (
-                np.sqrt(s_corrected["dW" + str(i + 1)]) + epsilon))
-        parameters["b" + str(i + 1)] = parameters["b" + str(i + 1)] - learning_rate * (v_corrected[
-                                                                                           "db" + str(i + 1)] / np.sqrt(
-            s_corrected["db" + str(i + 1)] + epsilon))
+        parameters["W" + str(i + 1)] = parameters["W" + str(i + 1)] - learning_rate * (v_corrected["dW" + str(i + 1)] / (np.sqrt(s_corrected["dW" + str(i + 1)]) + epsilon))
+        parameters["b" + str(i + 1)] = parameters["b" + str(i + 1)] - learning_rate * (v_corrected["db" + str(i + 1)] / np.sqrt(s_corrected["db" + str(i + 1)] + epsilon))
 
     return (parameters, v, s)
 
