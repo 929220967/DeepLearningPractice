@@ -138,8 +138,7 @@ def update_parameters_with_adam(parameters, grads, v, s, t, learning_rate=0.01, 
 
 
 # 8、定义模型
-def model(X, Y, layer_dims, optimizer, learning_rate=0.0007, mini_batch_size=64, beta=0.9, beta1=0.9, beta2=0.999,
-          epsilon=1e-8, iterators_num=10000):
+def model(X, Y, layer_dims, optimizer, learning_rate=0.0007, mini_batch_size=64, beta=0.9, beta1=0.9, beta2=0.999,epsilon=1e-8, iterators_num=10000):
     L = len(layer_dims)
     costs = []
     t = 0
@@ -176,8 +175,7 @@ def model(X, Y, layer_dims, optimizer, learning_rate=0.0007, mini_batch_size=64,
                 parameters, v = update_parameters_with_momentum(parameters, grads, v, beta, learning_rate)
             elif optimizer == "adam":
                 t = t + 1
-                parameters, v, s = update_parameters_with_adam(parameters, grads, v, s, t, learning_rate, beta1, beta2,
-                                                               epsilon)
+                parameters, v, s = update_parameters_with_adam(parameters, grads, v, s, t, learning_rate, beta1, beta2,epsilon)
 
         if i % 100 == 0:
             costs.append(cost)
